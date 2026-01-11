@@ -1,8 +1,8 @@
 # Kanban Board
 
-[![Ask DeepWiki](https://devin.ai/assets/askdeepwiki.png)](https://deepwiki.com/ankitsharma21598/KanbanBoard)
-
 A simple, responsive, and interactive Kanban board application built with React, TypeScript, and Vite. It allows users to manage tasks across different columns with drag-and-drop functionality, and all changes are persistently stored in the browser's local storage.
+
+![Screenshot](/src/assets/screenshot.png)
 
 ## Features
 
