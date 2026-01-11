@@ -1,73 +1,90 @@
-# React + TypeScript + Vite
+# Kanban Board
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Ask DeepWiki](https://devin.ai/assets/askdeepwiki.png)](https://deepwiki.com/ankitsharma21598/KanbanBoard)
 
-Currently, two official plugins are available:
+A simple, responsive, and interactive Kanban board application built with React, TypeScript, and Vite. It allows users to manage tasks across different columns with drag-and-drop functionality, and all changes are persistently stored in the browser's local storage.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- **Three-Column Layout**: Organizes tasks into "Todo", "In Progress", and "Done" columns.
+- **Task Management**: Create, update, and delete tasks (cards) directly on the board.
+- **Drag & Drop**: Smoothly move cards within the same column or across different columns, powered by `@dnd-kit`.
+- **Persistent State**: The board's state is automatically saved to `localStorage`, so your tasks are preserved between sessions.
+- **Responsive Design**: The layout adapts to both desktop and mobile screens.
+- **Modern Tech Stack**: Built with React, TypeScript, Vite, and styled with Tailwind CSS.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies Used
 
-## Expanding the ESLint configuration
+- **React**: A JavaScript library for building user interfaces.
+- **TypeScript**: A typed superset of JavaScript that compiles to plain JavaScript.
+- **Vite**: A next-generation frontend tooling that provides a faster and leaner development experience.
+- **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
+- **Dnd Kit**: A lightweight, modular, and accessible library for building drag and drop interfaces.
+- **ESLint**: For identifying and reporting on patterns found in ECMAScript/JavaScript code.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Follow these instructions to set up and run the project locally.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Prerequisites
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js (v18 or later)
+- npm or yarn
+
+### Installation & Setup
+
+1.  **Clone the repository:**
+
+    ```sh
+    git clone https://github.com/ankitsharma21598/KanbanBoard.git
+    ```
+
+2.  **Navigate to the project directory:**
+
+    ```sh
+    cd KanbanBoard
+    ```
+
+3.  **Install dependencies:**
+
+    ```sh
+    npm install
+    ```
+
+4.  **Run the development server:**
+    ```sh
+    npm run dev
+    ```
+    The application will be available at `http://localhost:5173`.
+
+### Available Scripts
+
+- `npm run dev`: Starts the development server with Hot Module Replacement (HMR).
+- `npm run build`: Compiles the TypeScript code and builds the application for production.
+- `npm run lint`: Lints the source code using ESLint.
+- `npm run preview`: Serves the production build locally to preview it.
+
+## Project Structure
+
+The project follows a standard Vite + React project structure. Key directories and files include:
+
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+/
+├── public/                 # Static assets
+├── src/
+│   ├── assets/             # Image and other static assets
+│   ├── components/         # Reusable React components
+│   │   ├── Card.tsx        # Individual task card component
+│   │   ├── Column.tsx      # Column component (e.g., Todo, In Progress)
+│   │   └── KanbanBoard.tsx # Main board container and logic
+│   ├── data/
+│   │   └── initialBoard.ts # Default board state
+│   ├── hooks/
+│   │   └── useLocalStorage.ts # Custom hook for persisting state
+│   ├── types/
+│   │   └── kanban.ts       # TypeScript type definitions
+│   ├── App.tsx             # Root application component
+│   └── main.tsx            # Application entry point
+├── package.json            # Project dependencies and scripts
+└── vite.config.ts          # Vite configuration
 ```
